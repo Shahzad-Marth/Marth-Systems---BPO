@@ -109,7 +109,7 @@ export default function Navbar() {
             alt="Marth Systems logo"
             className="h-7 w-7"
           />
-          <span className="hidden sm:inline">Marth</span>
+          <span className="inline">Marth</span>
           <span className="text-brand-blue"> Systems</span>
         </Link>
 
@@ -127,7 +127,7 @@ export default function Navbar() {
 
         <button
           onClick={() => setMobileOpen(true)}
-          className="relative z-50 rounded-lg p-2.5 text-ink lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+          className={`rounded-lg p-2.5 text-ink transition-opacity lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue ${mobileOpen ? "opacity-0 pointer-events-none" : "opacity-100"}`}
           aria-label="Open main menu"
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
