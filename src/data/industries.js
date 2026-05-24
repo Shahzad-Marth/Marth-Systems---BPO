@@ -1,0 +1,58 @@
+import { HeartPulse, Scan, Cloud, Rocket, ShoppingCart, Building2 } from "lucide-react";
+
+export const industries = [
+  {
+    id: "healthcare-clinics",
+    icon: HeartPulse,
+    name: "Healthcare Clinics",
+    description: "Medical practices, outpatient clinics, and healthcare facilities.",
+    painPoints: "Overburdened administrative staff, mounting claim denials, and shrinking reimbursement timelines create operational drag that pulls focus from patient care.",
+    solution: "We manage the full revenue cycle — from eligibility and prior authorization to coding, billing, and denial management — so your clinical team operates at the top of their license.",
+    benefits: ["30–40% reduction in AR days", "98% clean claim rate", "Lower cost-to-collect"],
+  },
+  {
+    id: "dermatology",
+    icon: Scan,
+    name: "Dermatology Practices",
+    description: "Specialty dermatology and medical aesthetics practices.",
+    painPoints: "Complex medical coding, high volume of prior authorizations, and insurance-specific billing rules create administrative friction that slows down patient access.",
+    solution: "Our dermatology-trained billing specialists handle procedure coding, modifier application, and payer-specific requirements to maximize reimbursements and reduce denials.",
+    benefits: ["Faster prior authorization turnaround", "Reduced coding errors", "Higher reimbursement rates"],
+  },
+  {
+    id: "saas",
+    icon: Cloud,
+    name: "SaaS Companies",
+    description: "Software platforms and subscription-based businesses.",
+    painPoints: "Growing customer bases strain support teams, subscription management becomes complex, and operational overhead scales faster than revenue.",
+    solution: "We provide multi-channel customer support, CRM management, and back-office processes that scale with your subscriber base — without proportional headcount growth.",
+    benefits: ["40% lower support cost per ticket", "Consistent SLA adherence", "Flexible team scaling"],
+  },
+  {
+    id: "startups",
+    icon: Rocket,
+    name: "Startups",
+    description: "High-growth companies scaling their operations.",
+    painPoints: "Early-stage teams wear too many hats. Founders and core teams spend critical time on operational tasks instead of product and growth.",
+    solution: "We act as an extended operations team — handling customer support, data management, and administrative workflows so your core team stays focused on building.",
+    benefits: ["Reduced founder overhead", "Operations that scale on demand", "Pay for what you need"],
+  },
+  {
+    id: "ecommerce",
+    icon: ShoppingCart,
+    name: "E-commerce Businesses",
+    description: "Online retailers and marketplace platforms.",
+    painPoints: "High-volume customer inquiries, order management complexity, and seasonal spikes make it difficult to maintain support quality while controlling costs.",
+    solution: "We run 24/7 customer support operations that flex with your sales cycles — handling inquiries, order issues, and returns so your in-house team isn't stretched thin.",
+    benefits: ["Support during peak seasons", "Consistent CSAT scores", "Lower cost per order"],
+  },
+  {
+    id: "professional-services",
+    icon: Building2,
+    name: "Professional Services",
+    description: "Consulting, legal, and financial firms.",
+    painPoints: "Billable hours are consumed by administrative work. Document management, scheduling, and client communication need dedicated attention that distracts from revenue-generating work.",
+    solution: "We provide virtual assistance, document processing, and administrative support tailored to professional services firms — keeping your practice running smoothly without overhead.",
+    benefits: ["More billable hours", "Streamlined document workflows", "Professional client communication"],
+  },
+];
