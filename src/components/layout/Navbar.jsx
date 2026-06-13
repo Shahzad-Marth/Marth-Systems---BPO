@@ -105,12 +105,10 @@ export default function Navbar() {
           aria-label="Marth Systems home"
         >
           <img
-            src="/assets/favicon/favicon.ico"
-            width={32} height={32} alt="Marth Systems logo"
-            className="h-7 w-7"
+            src="/assets/logo-horizontal.svg"
+            alt="Marth Systems"
+            className="h-[52px] w-auto"
           />
-          <span className="inline">Marth</span>
-          <span className="text-brand-blue"> Systems</span>
         </Link>
 
         <div className="hidden items-center lg:flex">
@@ -159,13 +157,12 @@ export default function Navbar() {
               className="fixed inset-y-0 right-0 z-50 flex w-full max-w-sm flex-col bg-surface shadow-xl"
             >
               <div className="flex items-center justify-between border-b border-border px-6 py-4">
-                <span className="flex items-center gap-2 text-lg font-bold tracking-tight text-ink">
+                <span className="flex items-center">
                   <img
-                      src="/assets/favicon/favicon.ico"
-                      width={32} height={32} alt="Marth Systems logo"
-                      className="h-7 w-7"
+                      src="/assets/logo-horizontal.svg"
+                      alt="Marth Systems"
+                      className="h-[52px] w-auto"
                     />
-                    Marth Systems
                 </span>
                 <button
                   onClick={closeMobile}
