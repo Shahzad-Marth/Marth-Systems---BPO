@@ -23,7 +23,7 @@ export default function Blog() {
         title="Blog"
         description="Insights on BPO, healthcare operations, revenue cycle management, customer support, workflow automation, and operational excellence from Marth Systems."
         image="/og/blog.png"
-        canonical="https://marth.systems/blog"
+        canonical="https://www.marth.systems/blog"
       />
 
       <section className="section-padding bg-gradient-to-br from-surface-blue-soft via-surface to-white">

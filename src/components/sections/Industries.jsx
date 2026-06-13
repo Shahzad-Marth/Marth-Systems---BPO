@@ -25,8 +25,8 @@ export default function Industries() {
     <Section>
       <SectionHeader
         badge="Industries We Serve"
-        title="Operational Infrastructure for Regulated & High-Growth Markets"
-        description="Our BPO solutions are purpose-built for the industries that demand precision, compliance, and scale."
+        title="RCM and BPO Support for Healthcare Organizations"
+        description="Our RCM and BPO support is purpose-built for the healthcare organizations that demand accuracy, compliance, and operational consistency."
       />
 
       <motion.div
@@ -34,7 +34,7 @@ export default function Industries() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-60px" }}
-        className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5"
+        className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
       >
         {industries.map((industry) => (
           <IndustryCard

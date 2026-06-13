@@ -15,20 +15,20 @@ export default function FinalCTA() {
         transition={{ duration: 0.5 }}
       >
         <h2 className="text-2xl sm:text-3xl lg:text-section-heading text-ink">
-          Build Smarter Operations with{" "}
-          <span className="text-brand-blue">Marth Systems</span>
+          Ready to Optimize Your{" "}
+          <span className="text-brand-blue">Revenue Cycle?</span>
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-base text-ink-secondary sm:text-body">
-          Partner with a BPO team that understands healthcare compliance,
-          customer operations, and the infrastructure needed to scale.
+          Partner with a team that understands US healthcare RCM, back-office
+          operations, and the workflows needed to keep your revenue cycle moving.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <Button to="/contact#consultation-form" size="lg">
-            Book a Consultation
+          <Button to="/contact" size="lg">
+            Request a Consultation
             <ArrowRight size={18} />
           </Button>
           <Button to="/services" variant="secondary" size="lg">
-            Explore Services
+            Explore RCM Services
           </Button>
         </div>
       </motion.div>

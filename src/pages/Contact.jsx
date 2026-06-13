@@ -4,6 +4,7 @@ import { ArrowRight, Clock, MessageSquare, Loader2, CheckCircle2, AlertCircle } 
 import { SEO } from "../components/common";
 import { Container, Badge, Button, Section } from "../components/ui";
 import { fadeUp } from "../utils/animations";
+import { serviceCategories } from "../data/services";
 
 const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 const WEB3FORMS_URL = "https://api.web3forms.com/submit";
@@ -15,9 +16,13 @@ if (!WEB3FORMS_KEY) {
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
-    company: "",
     email: "",
+    phone: "",
+    organization: "",
+    role: "",
     service: "",
+    claimVolume: "",
+    providerCount: "",
     message: "",
   });
   const [status, setStatus] = useState("idle");
@@ -34,12 +39,16 @@ export default function ContactPage() {
 
     const payload = {
       access_key: WEB3FORMS_KEY,
-      subject: "Marth Systems - BPO | New Consultation Inquiry",
+      subject: "Marth Systems — New RCM/BPO Consultation Inquiry",
       from_name: formData.name,
       name: formData.name,
-      company: formData.company,
       email: formData.email,
+      phone: formData.phone,
+      organization: formData.organization,
+      role: formData.role,
       service: formData.service || "Not specified",
+      claim_volume: formData.claimVolume || "Not specified",
+      provider_count: formData.providerCount || "Not specified",
       message: formData.message,
     };
 
@@ -54,7 +63,10 @@ export default function ContactPage() {
 
       if (data.success) {
         setStatus("success");
-        setFormData({ name: "", company: "", email: "", service: "", message: "" });
+        setFormData({
+          name: "", email: "", phone: "", organization: "", role: "",
+          service: "", claimVolume: "", providerCount: "", message: "",
+        });
       } else {
         setStatus("error");
         setErrorMsg(data.message || "Something went wrong. Please try again.");
@@ -69,9 +81,8 @@ export default function ContactPage() {
     <>
       <SEO
         title="Contact"
-        description="Book a consultation with Marth Systems. Let's discuss how we can help optimize your healthcare, customer support, or back-office operations."
-        image="/og/contact.png"
-        canonical="https://marth.systems/contact"
+        description="Request a consultation with Marth Systems for full-cycle US healthcare RCM and BPO support. Let us discuss your revenue cycle and back-office needs."
+        canonical="https://www.marth.systems/contact"
       />
 
       <section className="section-padding bg-gradient-to-br from-surface-blue-soft via-surface to-white">
@@ -79,13 +90,13 @@ export default function ContactPage() {
           <div className="max-w-3xl">
             <Badge>Book a Consultation</Badge>
             <h1 className="mt-5 text-4xl leading-[1.15] tracking-tight text-ink sm:text-5xl lg:text-hero">
-              Let's Talk About{" "}
-              <span className="text-brand-blue">Your Operations</span>
+              Let us Talk About Your{" "}
+              <span className="text-brand-blue">Revenue Cycle</span>
             </h1>
             <p className="mt-4 max-w-xl text-base text-ink-secondary sm:text-body">
-              Tell us about your operational needs. We'll schedule a no-obligation
-              consultation to understand your current workflows and identify where
-              we can add value.
+              Tell us about your practice or organization. We will schedule a
+              no-obligation consultation to understand your current RCM and
+              back-office workflows and discuss how we can support your team.
             </p>
           </div>
         </Container>
@@ -108,9 +119,9 @@ export default function ContactPage() {
                     <MessageSquare size={14} />
                   </div>
                   <div>
-                    <span className="font-medium text-ink">30-minute discovery call</span>
+                    <span className="font-medium text-ink">Confidential discovery call</span>
                     <br />
-                    We'll discuss your operations, pain points, and goals.
+                    We will discuss your RCM operations, challenges, and goals.
                   </div>
                 </li>
                 <li className="flex items-start gap-3 text-sm text-ink-secondary">
@@ -120,7 +131,7 @@ export default function ContactPage() {
                   <div>
                     <span className="font-medium text-ink">Follow-up within 24 hours</span>
                     <br />
-                    You'll receive a summary of our conversation and proposed next steps.
+                    You will receive a summary and proposed next steps.
                   </div>
                 </li>
                 <li className="flex items-start gap-3 text-sm text-ink-secondary">
@@ -130,7 +141,7 @@ export default function ContactPage() {
                   <div>
                     <span className="font-medium text-ink">No commitment required</span>
                     <br />
-                    Our consultations are informational. There's no obligation to move forward.
+                    Our consultations are informational. There is no obligation.
                   </div>
                 </li>
               </ul>
@@ -152,7 +163,7 @@ export default function ContactPage() {
                 </div>
                 <h3 className="mt-4 text-xl font-semibold text-ink">Inquiry submitted</h3>
                 <p className="mt-2 max-w-sm text-sm text-ink-secondary">
-                  Thanks for reaching out. We'll review your message and follow up
+                  Thanks for reaching out. We will review your message and follow up
                   within 24 hours.
                 </p>
                 <Button
@@ -166,11 +177,7 @@ export default function ContactPage() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                  <input
-                    type="checkbox"
-                    name="botcheck"
-                    className="hidden"
-                  />
+                <input type="checkbox" name="botcheck" className="hidden" />
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
@@ -188,56 +195,126 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="company" className="mb-1.5 block text-sm font-medium text-ink">
-                      Company
+                    <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-ink">
+                      Business email <span className="text-red-400">*</span>
                     </label>
                     <input
-                      id="company"
-                      type="text"
-                      value={formData.company}
+                      id="email"
+                      type="email"
+                      required
+                      value={formData.email}
                       onChange={handleChange}
-                      placeholder="Your company name"
+                      placeholder="you@practice.com"
                       className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-ink">
-                    Email <span className="text-red-400">*</span>
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="you@company.com"
-                    className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
-                  />
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-ink">
+                      Phone
+                    </label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="+1 (555) 123-4567"
+                      className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="organization" className="mb-1.5 block text-sm font-medium text-ink">
+                      Organization / Practice name <span className="text-red-400">*</span>
+                    </label>
+                    <input
+                      id="organization"
+                      type="text"
+                      required
+                      value={formData.organization}
+                      onChange={handleChange}
+                      placeholder="Your practice or organization"
+                      className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-ink">
-                    Service interested in
-                  </label>
-                  <select
-                    id="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
-                  >
-                    <option value="">Select a service...</option>
-                    <option value="healthcare">Healthcare Operations</option>
-                    <option value="customer-support">Customer Support</option>
-                    <option value="business-ops">Business Operations</option>
-                    <option value="multiple">Multiple / Not sure</option>
-                  </select>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="role" className="mb-1.5 block text-sm font-medium text-ink">
+                      Your role
+                    </label>
+                    <input
+                      id="role"
+                      type="text"
+                      value={formData.role}
+                      onChange={handleChange}
+                      placeholder="Practice manager, billing manager, etc."
+                      className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-ink">
+                      Service interest
+                    </label>
+                    <select
+                      id="service"
+                      value={formData.service}
+                      onChange={handleChange}
+                      className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                    >
+                      <option value="">Select a service...</option>
+                      {serviceCategories.map((cat) => (
+                        <option key={cat.id} value={cat.id}>
+                          {cat.title}
+                        </option>
+                      ))}
+                      <option value="multiple">Multiple / Not sure</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="claimVolume" className="mb-1.5 block text-sm font-medium text-ink">
+                      Monthly claim volume <span className="text-ink-muted">(optional)</span>
+                    </label>
+                    <select
+                      id="claimVolume"
+                      value={formData.claimVolume}
+                      onChange={handleChange}
+                      className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                    >
+                      <option value="">Select volume...</option>
+                      <option value="under-500">Under 500</option>
+                      <option value="500-2000">500 — 2,000</option>
+                      <option value="2000-5000">2,000 — 5,000</option>
+                      <option value="5000-plus">5,000+</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="providerCount" className="mb-1.5 block text-sm font-medium text-ink">
+                      Number of providers <span className="text-ink-muted">(optional)</span>
+                    </label>
+                    <select
+                      id="providerCount"
+                      value={formData.providerCount}
+                      onChange={handleChange}
+                      className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue"
+                    >
+                      <option value="">Select count...</option>
+                      <option value="1-5">1 — 5</option>
+                      <option value="6-20">6 — 20</option>
+                      <option value="21-50">21 — 50</option>
+                      <option value="50-plus">50+</option>
+                    </select>
+                  </div>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-ink">
-                    Message <span className="text-red-400">*</span>
+                    Tell us about your needs <span className="text-red-400">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -245,9 +322,18 @@ export default function ContactPage() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Tell us about your operational needs..."
+                    placeholder="Describe your RCM, billing, credentialing, or back-office needs..."
                     className="w-full rounded-lg border border-border bg-surface-alt px-4 py-2.5 text-sm text-ink placeholder:text-ink-muted focus:border-brand-blue focus:outline-none focus:ring-1 focus:ring-brand-blue resize-y"
                   />
+                </div>
+
+                <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3">
+                  <p className="text-xs leading-relaxed text-amber-800">
+                    <strong>Important:</strong> Please do not submit protected health information (PHI),
+                    patient records, claim files, login credentials, or sensitive documents through
+                    this form. After initial contact, we can arrange an appropriate secure intake
+                    process if needed.
+                  </p>
                 </div>
 
                 {status === "error" && (

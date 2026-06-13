@@ -1,8 +1,12 @@
 export { default as Hero } from "./Hero";
 export { default as TrustMetrics } from "./TrustMetrics";
-export { default as Workflow } from "./Workflow";
+export { default as RcmOverview } from "./RcmOverview";
+export { default as RcmPhases } from "./RcmPhases";
 export { default as Services } from "./Services";
+export { default as CredentialingEnrollment } from "./CredentialingEnrollment";
 export { default as Industries } from "./Industries";
+export { default as CommonProblems } from "./CommonProblems";
+export { default as Workflow } from "./Workflow";
 export { default as TrustBadges } from "./TrustBadges";
 export { default as Testimonials } from "./Testimonials";
 export { default as FinalCTA } from "./FinalCTA";

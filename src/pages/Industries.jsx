@@ -1,12 +1,18 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SEO } from "../components/common";
 import { Container, Badge, Button, Section } from "../components/ui";
 import { fadeUp, staggerContainer } from "../utils/animations";
 import { industries } from "../data/industries";
 
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
 function IndustryDetailCard({ id, industry }) {
   const Icon = industry.icon;
+  const slug = slugify(industry.name);
 
   return (
     <motion.div
@@ -55,6 +61,15 @@ function IndustryDetailCard({ id, industry }) {
               </ul>
             </div>
           </div>
+
+          <div className="mt-6">
+            <Link
+              to={`/industries/${slug}`}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue transition-colors hover:text-brand-blue/80"
+            >
+              Learn more <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>
@@ -65,10 +80,9 @@ export default function IndustriesPage() {
   return (
     <>
       <SEO
-        title="Industries"
-        description="Marth Systems serves healthcare clinics, dermatology practices, SaaS companies, startups, e-commerce businesses, and professional services with tailored BPO solutions."
-        image="/og/industries.png"
-        canonical="https://marth.systems/industries"
+        title="Industries We Serve"
+        description="Marth Systems serves medical practices, provider groups, behavioral health, telehealth, specialty clinics, and billing companies with full-cycle RCM and BPO support."
+        canonical="https://www.marth.systems/industries"
       />
 
       <section className="section-padding bg-gradient-to-br from-surface-blue-soft via-surface to-white">
@@ -76,17 +90,17 @@ export default function IndustriesPage() {
           <div className="max-w-3xl">
             <Badge>Industries We Serve</Badge>
             <h1 className="mt-5 text-4xl leading-[1.15] tracking-tight text-ink sm:text-5xl lg:text-hero">
-              Operational Infrastructure for{" "}
-              <span className="text-brand-blue">Regulated & High-Growth Markets</span>
+              Healthcare RCM and BPO Support for{" "}
+              <span className="text-brand-blue">Every Practice Type</span>
             </h1>
             <p className="mt-4 max-w-xl text-base text-ink-secondary sm:text-body">
-              Every industry has unique operational demands. We tailor our approach
-              to the specific workflows, compliance requirements, and growth
-              patterns of each market we serve.
+              Every healthcare organization has unique revenue cycle and administrative
+              needs. We tailor our support to the specific workflows, payer requirements,
+              and compliance considerations of each practice type.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button to="/contact#consultation-form" size="lg">
-                Book a Consultation <ArrowRight size={18} />
+              <Button to="/contact" size="lg">
+                Request a Consultation <ArrowRight size={18} />
               </Button>
               <Button to="/services" variant="secondary" size="lg">
                 View Services
@@ -119,15 +133,15 @@ export default function IndustriesPage() {
           className="text-center"
         >
           <h2 className="text-2xl sm:text-3xl lg:text-section-heading text-ink">
-            Don't see your industry?
+            Do not see your practice type?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base text-ink-secondary sm:text-body">
-            We work with businesses across many sectors. Reach out and we'll show
-            you how our operational model applies to your specific context.
+            We work with many types of healthcare organizations. Reach out and we
+            will discuss how our RCM and BPO support applies to your specific context.
           </p>
           <div className="mt-8">
-            <Button to="/contact#consultation-form" size="lg">
-              Book a Consultation <ArrowRight size={18} />
+            <Button to="/contact" size="lg">
+              Request a Consultation <ArrowRight size={18} />
             </Button>
           </div>
         </motion.div>

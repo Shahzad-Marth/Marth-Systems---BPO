@@ -38,14 +38,13 @@ function ProcessStep({ step }) {
   );
 }
 
-export default function WhyUs() {
+export default function WhyMarthSystems() {
   return (
     <>
       <SEO
-        title="Why Us"
-        description="Discover why businesses choose Marth Systems — operational efficiency, scalable support, compliance-first processes, dedicated teams, and complete transparency."
-        image="/og/why-us.png"
-        canonical="https://marth.systems/why-us"
+        title="Why Marth Systems"
+        description="Marth Systems provides full-cycle US healthcare RCM and BPO support with dedicated teams, transparent reporting, compliance-first operations, and seamless EMR integration."
+        canonical="https://www.marth.systems/why-marth-systems"
       />
 
       <section className="section-padding bg-gradient-to-br from-surface-blue-soft via-surface to-white">
@@ -53,17 +52,17 @@ export default function WhyUs() {
           <div className="max-w-3xl">
             <Badge>Why Marth Systems</Badge>
             <h1 className="mt-5 text-4xl leading-[1.15] tracking-tight text-ink sm:text-5xl lg:text-hero">
-              Operational Partnership,{" "}
-              <span className="text-brand-blue">Not Just Outsourcing</span>
+              RCM and BPO Support Built for{" "}
+              <span className="text-brand-blue">Healthcare Operations</span>
             </h1>
             <p className="mt-4 max-w-xl text-base text-ink-secondary sm:text-body">
-              We build and manage operations that integrate with your business —
-              not bolt-on services that require constant oversight. Here's what
-              makes our approach different.
+              We provide revenue cycle management and healthcare BPO support that
+              integrates with your existing team and systems — not bolt-on services
+              that require constant oversight.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button to="/contact#consultation-form" size="lg">
-                Book a Consultation <ArrowRight size={18} />
+              <Button to="/contact" size="lg">
+                Request a Consultation <ArrowRight size={18} />
               </Button>
               <Button to="/services" variant="secondary" size="lg">
                 View Services
@@ -94,7 +93,7 @@ export default function WhyUs() {
           <h2 className="mt-5 text-2xl sm:text-3xl lg:text-section-heading text-ink">{philosophy.heading}</h2>
           <p className="mt-4 text-base text-ink-secondary sm:text-body">
             We follow a structured four-phase approach to ensure every engagement
-            delivers predictable results.
+            delivers consistent results.
           </p>
         </div>
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
@@ -107,15 +106,14 @@ export default function WhyUs() {
       <Section background="alt">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-2xl sm:text-3xl lg:text-section-heading text-ink">
-            Ready to build operations that scale?
+            Ready to optimize your revenue cycle?
           </h2>
           <p className="mt-4 text-base text-ink-secondary sm:text-body">
-            We'll start with a no-obligation operational assessment. You'll get a
-            clear picture of where your operations stand and where they can improve.
+            We will start with a no-obligation review of your current operations.
           </p>
           <div className="mt-8">
-            <Button to="/contact#consultation-form" size="lg">
-              Book a Consultation <ArrowRight size={18} />
+            <Button to="/contact" size="lg">
+              Request a Consultation <ArrowRight size={18} />
             </Button>
           </div>
         </div>

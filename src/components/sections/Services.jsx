@@ -5,6 +5,19 @@ import { Button, SectionHeader, Section } from "../ui";
 import { fadeUp, staggerContainer } from "../../utils/animations";
 import { serviceCategories } from "../../data/services";
 
+function slugify(title) {
+  const map = {
+    "Full-Cycle Revenue Cycle Management": "full-cycle-rcm",
+    "Healthcare BPO": "healthcare-bpo",
+    "Medical Billing": "medical-billing",
+    "Denial Management": "denial-management",
+    "A/R Follow-Up": "ar-follow-up",
+    "Provider Credentialing": "provider-credentialing",
+    "Provider Enrollment": "provider-enrollment",
+  };
+  return map[title] || title.toLowerCase().replace(/\s+/g, "-");
+}
+
 const cardStagger = staggerContainer(0.12, 0.1);
 
 function ServiceCard({ title, description, services, icon: Icon, to }) {
@@ -45,8 +58,8 @@ export default function Services() {
     <Section background="alt">
       <SectionHeader
         badge="What We Do"
-        title="Enterprise-Grade Operational Services"
-        description="Purpose-built BPO solutions across three core domains — each designed to optimize workflows, reduce costs, and drive measurable results."
+        title="Full-Cycle Healthcare RCM and BPO Services"
+        description="Revenue cycle management and healthcare back-office support across front-end, mid-cycle, and back-end workflows — each designed to improve accuracy, reduce administrative burden, and accelerate reimbursement."
       />
 
       <motion.div
@@ -56,16 +69,19 @@ export default function Services() {
         viewport={{ once: true, margin: "-60px" }}
         className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
       >
-        {serviceCategories.map((category) => (
-          <ServiceCard
-            key={category.id}
-            title={category.title}
-            description={category.description}
-            services={category.services}
-            icon={category.icon}
-            to={`/services#${category.id}`}
-          />
-        ))}
+        {serviceCategories.slice(0, 6).map((category) => {
+          const slug = slugify(category.title);
+          return (
+            <ServiceCard
+              key={category.id}
+              title={category.title}
+              description={category.summary}
+              services={category.services}
+              icon={category.icon}
+              to={`/services/${slug}`}
+            />
+          );
+        })}
       </motion.div>
 
       <motion.div

@@ -106,7 +106,7 @@ export default function Navbar() {
         >
           <img
             src="/favicon.ico"
-            alt="Marth Systems logo"
+            width={32} height={32} alt="Marth Systems logo"
             className="h-7 w-7"
           />
           <span className="inline">Marth</span>
@@ -120,7 +120,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center lg:flex">
-          <Button to="/contact#consultation-form" size="md">
+          <Button to="/contact" size="md">
             Book Consultation
           </Button>
         </div>
@@ -162,7 +162,7 @@ export default function Navbar() {
                 <span className="flex items-center gap-2 text-lg font-bold tracking-tight text-ink">
                   <img
                       src="/favicon.ico"
-                      alt="Marth Systems logo"
+                      width={32} height={32} alt="Marth Systems logo"
                       className="h-7 w-7"
                     />
                     Marth Systems
@@ -202,7 +202,7 @@ export default function Navbar() {
                 className="border-t border-border px-6 py-6"
               >
                 <Button
-                  to="/contact#consultation-form"
+                  to="/contact"
                   onClick={closeMobile}
                   size="lg"
                   className="w-full"

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marth.systems/sitemap.xml
+Sitemap: https://www.marth.systems/sitemap.xml

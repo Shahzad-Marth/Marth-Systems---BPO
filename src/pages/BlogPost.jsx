@@ -115,7 +115,7 @@ export default function BlogPost() {
         title={post.title}
         description={post.excerpt}
         image="/og/blog.png"
-        canonical={`https://marth.systems/blog/${post.slug}`}
+        canonical={`https://www.marth.systems/blog/${post.slug}`}
         article={{
           ...post,
           publishedTime: post.date,

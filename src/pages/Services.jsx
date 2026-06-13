@@ -1,12 +1,27 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { SEO } from "../components/common";
 import { Container, Badge, Button, Section } from "../components/ui";
 import { fadeUp, staggerContainer } from "../utils/animations";
 import { serviceCategories } from "../data/services";
 
+function slugify(title) {
+  const map = {
+    "Full-Cycle Revenue Cycle Management": "full-cycle-rcm",
+    "Healthcare BPO": "healthcare-bpo",
+    "Medical Billing": "medical-billing",
+    "Denial Management": "denial-management",
+    "A/R Follow-Up": "ar-follow-up",
+    "Provider Credentialing": "provider-credentialing",
+    "Provider Enrollment": "provider-enrollment",
+  };
+  return map[title] || title.toLowerCase().replace(/\s+/g, "-");
+}
+
 function ServiceDetailCard({ category }) {
   const Icon = category.icon;
+  const slug = slugify(category.title);
 
   return (
     <motion.div
@@ -40,7 +55,7 @@ function ServiceDetailCard({ category }) {
             </div>
             <div>
               <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-ink-muted">
-                By the numbers
+                Highlights
               </h3>
               <ul className="space-y-2">
                 {category.highlights.map((h) => (
@@ -52,6 +67,15 @@ function ServiceDetailCard({ category }) {
               </ul>
             </div>
           </div>
+
+          <div className="mt-6">
+            <Link
+              to={`/services/${slug}`}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-blue transition-colors hover:text-brand-blue/80"
+            >
+              Learn more <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </div>
     </motion.div>
@@ -62,10 +86,9 @@ export default function ServicesPage() {
   return (
     <>
       <SEO
-        title="Services"
-        description="Enterprise BPO solutions across healthcare operations, customer support, and business back office — revenue cycle management, multi-channel support, and administrative outsourcing."
-        image="/og/services.png"
-        canonical="https://marth.systems/services"
+        title="Healthcare RCM & BPO Services"
+        description="Full-cycle US healthcare RCM and BPO services — front-end RCM, medical billing, denial management, A/R follow-up, provider credentialing, provider enrollment, and healthcare BPO."
+        canonical="https://www.marth.systems/services"
       />
 
       <section className="section-padding bg-gradient-to-br from-surface-blue-soft via-surface to-white">
@@ -73,20 +96,20 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <Badge>What We Do</Badge>
             <h1 className="mt-5 text-4xl leading-[1.15] tracking-tight text-ink sm:text-5xl lg:text-hero">
-              Operational Services Built for{" "}
-              <span className="text-brand-blue">Scale and Precision</span>
+              Healthcare RCM{" "}
+              <span className="text-brand-blue">& BPO Services</span>
             </h1>
             <p className="mt-4 max-w-xl text-base text-ink-secondary sm:text-body">
-              We design, manage, and optimize the business processes that keep your
-              organization running — from revenue cycle management to customer
-              support and back-office operations.
+              Revenue cycle management and healthcare back-office support for
+              practices, clinics, provider groups, billing teams, and healthcare
+              organizations — from patient intake through final reimbursement.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button to="/contact#consultation-form" size="lg">
-                Book a Consultation <ArrowRight size={18} />
+              <Button to="/contact" size="lg">
+                Request a Consultation <ArrowRight size={18} />
               </Button>
-              <Button to="/why-us" variant="secondary" size="lg">
-                Why Marth Systems
+              <Button to="/process" variant="secondary" size="lg">
+                Our Process
               </Button>
             </div>
           </div>
@@ -108,6 +131,16 @@ export default function ServicesPage() {
       </Section>
 
       <Section>
+        <div className="rounded-card border border-amber-200 bg-amber-50 p-6">
+          <p className="text-sm leading-relaxed text-amber-800">
+            <strong>Privacy and security note:</strong> Please do not submit protected health information (PHI),
+            patient records, claim files, login credentials, or sensitive documents through this website.
+            After initial contact, we can arrange an appropriate secure intake process if needed.
+          </p>
+        </div>
+      </Section>
+
+      <Section>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -119,12 +152,12 @@ export default function ServicesPage() {
             Not sure which service fits your needs?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base text-ink-secondary sm:text-body">
-            We'll assess your current operations and recommend a tailored approach.
-            No commitment, no pressure.
+            We will assess your current revenue cycle operations and recommend a
+            tailored approach. No commitment, no pressure.
           </p>
           <div className="mt-8">
-            <Button to="/contact#consultation-form" size="lg">
-              Book a Consultation <ArrowRight size={18} />
+            <Button to="/contact" size="lg">
+              Request a Consultation <ArrowRight size={18} />
             </Button>
           </div>
         </motion.div>

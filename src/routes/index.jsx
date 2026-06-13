@@ -7,13 +7,16 @@ import MainLayout from "../layouts/MainLayout";
 const Home = lazy(() => import("../pages/Home"));
 const About = lazy(() => import("../pages/About"));
 const Services = lazy(() => import("../pages/Services"));
+const ServiceDetail = lazy(() => import("../pages/ServiceDetail"));
 const Industries = lazy(() => import("../pages/Industries"));
-const WhyUs = lazy(() => import("../pages/WhyUs"));
-const CaseStudies = lazy(() => import("../pages/CaseStudies"));
+const IndustryDetail = lazy(() => import("../pages/IndustryDetail"));
+const WhyMarthSystems = lazy(() => import("../pages/WhyMarthSystems"));
+const Process = lazy(() => import("../pages/Process"));
 const Blog = lazy(() => import("../pages/Blog"));
 const BlogPost = lazy(() => import("../pages/BlogPost"));
 const Contact = lazy(() => import("../pages/Contact"));
 const Privacy = lazy(() => import("../pages/Privacy"));
+const Security = lazy(() => import("../pages/Security"));
 const Terms = lazy(() => import("../pages/Terms"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 
@@ -44,13 +47,16 @@ const router = createBrowserRouter([
       { index: true, element: wrap(Home) },
       { path: "about", element: wrap(About) },
       { path: "services", element: wrap(Services) },
+      { path: "services/:slug", element: wrap(ServiceDetail) },
       { path: "industries", element: wrap(Industries) },
-      { path: "why-us", element: wrap(WhyUs) },
-      { path: "case-studies", element: wrap(CaseStudies) },
+      { path: "industries/:slug", element: wrap(IndustryDetail) },
+      { path: "why-marth-systems", element: wrap(WhyMarthSystems) },
+      { path: "process", element: wrap(Process) },
       { path: "blog", element: wrap(Blog) },
       { path: "blog/:slug", element: wrap(BlogPost) },
       { path: "contact", element: wrap(Contact) },
       { path: "privacy", element: wrap(Privacy) },
+      { path: "security", element: wrap(Security) },
       { path: "terms", element: wrap(Terms) },
       { path: "*", element: wrap(NotFound) },
     ],

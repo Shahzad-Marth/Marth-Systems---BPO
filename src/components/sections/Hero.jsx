@@ -1,138 +1,37 @@
 import { motion } from "framer-motion";
-import { ArrowRight, TrendingUp, CheckCircle2, Clock, Activity } from "lucide-react";
+import { ArrowRight, CheckCircle2, FileText, Shield, BarChart3 } from "lucide-react";
 import { Container, Button, Badge } from "../ui";
 import { fadeUp, staggerContainer } from "../../utils/animations";
 
 const containerVariants = staggerContainer(0.12, 0.2);
 
-function KpiCard({ value, label, trend, trendUp, delay }) {
+function RCMCategorCard({ icon: Icon, title, items, delay }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
-      className="rounded-xl border border-border bg-white px-4 py-3.5 shadow-sm"
+      className="rounded-xl border border-border bg-white p-4 shadow-sm"
     >
-      <div className="text-xl font-bold tracking-tight text-ink">{value}</div>
-      <div className="mt-0.5 flex items-center gap-1.5">
-        <span className="text-xs text-ink-muted">{label}</span>
-        <span className={`flex items-center gap-0.5 text-[11px] font-medium ${trendUp ? "text-emerald-600" : "text-red-500"}`}>
-          <TrendingUp size={11} className={trendUp ? "" : "rotate-180"} />
-          {trend}
-        </span>
+      <div className="flex items-center gap-2 mb-3">
+        <div className="flex h-6 w-6 items-center justify-center rounded-md bg-brand-blue/10 text-brand-blue">
+          <Icon size={13} />
+        </div>
+        <span className="text-xs font-semibold text-ink">{title}</span>
       </div>
-    </motion.div>
-  );
-}
-
-function TrendChart() {
-  const points = [
-    { x: 0, y: 60 },
-    { x: 16, y: 35 },
-    { x: 32, y: 48 },
-    { x: 48, y: 20 },
-    { x: 64, y: 30 },
-    { x: 80, y: 12 },
-    { x: 96, y: 22 },
-    { x: 112, y: 8 },
-    { x: 128, y: 18 },
-    { x: 144, y: 4 },
-    { x: 160, y: 10 },
-    { x: 176, y: 2 },
-  ];
-
-  const pathD = points
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`)
-    .join(" ");
-
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.7 }}
-      className="rounded-xl bg-surface-alt p-4"
-    >
-      <div className="mb-2 flex items-center justify-between">
-        <span className="text-xs font-semibold text-ink">Resolution Trend</span>
-        <span className="flex items-center gap-1 text-xs font-medium text-emerald-600">
-          <TrendingUp size={12} />
-          +18.5%
-        </span>
-      </div>
-      <div className="relative h-16 w-full">
-        <motion.svg
-          viewBox="0 0 180 64"
-          className="h-full w-full"
-          preserveAspectRatio="none"
-        >
-          <motion.path
-            d={pathD}
-            fill="none"
-            stroke="#2563EB"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 1.2, delay: 0.9, ease: "easeInOut" }}
-          />
-          <motion.path
-            d={`${pathD} L 180 64 L 0 64 Z`}
-            fill="url(#gradient)"
-            opacity={0.08}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.2 }}
-          />
-          <defs>
-            <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#2563EB" />
-              <stop offset="100%" stopColor="#2563EB" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </motion.svg>
-      </div>
-    </motion.div>
-  );
-}
-
-function ActivityFeed() {
-  const items = [
-    { label: "Claim #2847", action: "Processed", time: "12:30", delay: 1.1 },
-    { label: "Ticket #1034", action: "Resolved", time: "12:15", delay: 1.2 },
-    { label: "Report — Q3", action: "Generated", time: "11:45", delay: 1.3 },
-    { label: "Review — Audit", action: "Approved", time: "11:20", delay: 1.4 },
-  ];
-
-  return (
-    <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
-      <div className="mb-2.5 flex items-center gap-2">
-        <Activity size={13} className="text-ink-muted" />
-        <span className="text-xs font-semibold text-ink">Activity Feed</span>
-      </div>
-      <div className="space-y-2">
+      <ul className="space-y-1.5">
         {items.map((item) => (
-          <motion.div
-            key={item.label}
-            initial={{ opacity: 0, x: -8 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.35, delay: item.delay, ease: "easeOut" }}
-            className="flex items-center justify-between"
-          >
-            <div className="flex items-center gap-2.5">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              <span className="text-xs text-ink-muted">{item.label}</span>
-              <span className="text-[11px] font-medium text-ink-secondary">{item.action}</span>
-            </div>
-            <span className="text-[11px] text-ink-muted">{item.time}</span>
-          </motion.div>
+          <li key={item} className="flex items-center gap-2 text-xs text-ink-muted">
+            <span className="h-1 w-1 rounded-full bg-brand-blue/40" />
+            {item}
+          </li>
         ))}
-      </div>
-    </div>
+      </ul>
+    </motion.div>
   );
 }
 
-function DashboardMockup() {
+function RCMOverview() {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.96, y: 10 }}
@@ -149,51 +48,58 @@ function DashboardMockup() {
         >
           <div className="flex items-center gap-2">
             <div className="flex h-5 w-5 items-center justify-center rounded-md bg-brand-blue/10">
-              <Activity size={12} className="text-brand-blue" />
+              <BarChart3 size={12} className="text-brand-blue" />
             </div>
-            <span className="text-sm font-semibold text-ink">Operations Dashboard</span>
+            <span className="text-sm font-semibold text-ink">Full-Cycle RCM Overview</span>
           </div>
           <div className="flex items-center gap-1 rounded-md border border-border px-2 py-1">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            <span className="text-[10px] font-medium text-ink-muted">Live</span>
+            <span className="text-[10px] font-medium text-ink-muted">All Phases</span>
           </div>
         </motion.div>
 
-        <div className="mb-3 grid grid-cols-3 gap-2.5">
-          <KpiCard value="92.4%" label="Accuracy" trend="+2.1%" trendUp delay={0.5} />
-          <KpiCard value="1,847" label="Processed" trend="+12.3%" trendUp delay={0.55} />
-          <KpiCard value="3.2m" label="Avg. Time" trend="-8%" trendUp={false} delay={0.6} />
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+          <RCMCategorCard
+            icon={FileText}
+            title="Front-End RCM"
+            items={["Eligibility verification", "Prior authorization", "Referral coordination", "Patient scheduling"]}
+            delay={0.5}
+          />
+          <RCMCategorCard
+            icon={BarChart3}
+            title="Mid-Cycle RCM"
+            items={["Charge entry", "Claim scrubbing", "Claims submission", "Clearinghouse follow-up"]}
+            delay={0.55}
+          />
+          <RCMCategorCard
+            icon={CheckCircle2}
+            title="Back-End RCM"
+            items={["Payment posting", "Denial management", "A/R follow-up", "Patient billing"]}
+            delay={0.6}
+          />
         </div>
 
-        <div className="mb-3 grid grid-cols-2 gap-2.5">
-          <TrendChart />
-          <div className="space-y-2.5">
-            <div className="rounded-xl border border-border bg-white p-3.5 shadow-sm">
-              <div className="flex items-center gap-2">
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50">
-                  <CheckCircle2 size={14} className="text-emerald-600" />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-ink">98.7%</div>
-                  <div className="text-[11px] text-ink-muted">Satisfaction</div>
-                </div>
-              </div>
-            </div>
-            <div className="rounded-xl border border-border bg-white p-3.5 shadow-sm">
-              <div className="flex items-center gap-2">
-                <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-brand-blue/10">
-                  <Clock size={14} className="text-brand-blue" />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-ink">24/7</div>
-                  <div className="text-[11px] text-ink-muted">Coverage</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <ActivityFeed />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.8 }}
+          className="mt-3 flex items-center justify-center gap-4 rounded-lg bg-surface-alt p-3 text-xs text-ink-muted"
+        >
+          <span className="flex items-center gap-1.5">
+            <Shield size={12} className="text-emerald-500" />
+            HIPAA-Conscious Workflows
+          </span>
+          <span className="hidden sm:inline">|</span>
+          <span className="flex items-center gap-1.5">
+            <CheckCircle2 size={12} className="text-emerald-500" />
+            Dedicated Teams
+          </span>
+          <span className="hidden sm:inline">|</span>
+          <span className="flex items-center gap-1.5">
+            <BarChart3 size={12} className="text-emerald-500" />
+            Transparent Reporting
+          </span>
+        </motion.div>
       </div>
     </motion.div>
   );
@@ -235,31 +141,31 @@ export default function Hero() {
           <motion.div variants={fadeUp}>
             <Badge>
               <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              Enterprise BPO Platform
+              Full-Cycle US Healthcare RCM & BPO
             </Badge>
           </motion.div>
 
           <motion.h1 variants={fadeUp} className="mt-6 text-4xl leading-[1.15] tracking-tight text-ink sm:text-5xl lg:text-hero">
-            Operational Infrastructure for{" "}
-            <span className="text-brand-blue">Healthcare & Customer Excellence</span>
+            Full-Cycle US Healthcare{" "}
+            <span className="text-brand-blue">RCM & BPO Support</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
             className="mt-5 max-w-lg text-base leading-relaxed text-ink-secondary sm:text-body"
           >
-            Enterprise BPO solutions combining AI-driven workflows, HIPAA-compliant
-            processes, and deep domain expertise to reduce costs and accelerate
-            growth across healthcare and customer operations.
+            Marth Systems helps healthcare practices, clinics, provider groups, and billing teams
+            manage revenue cycle and back-office workflows from patient intake through claims,
+            payment posting, denial management, A/R follow-up, credentialing, enrollment, and reporting.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-wrap items-center gap-4">
-            <Button to="/contact#consultation-form" size="lg">
-              Book a Consultation
+            <Button to="/contact" size="lg">
+              Request a Consultation
               <ArrowRight size={18} />
             </Button>
             <Button to="/services" variant="secondary" size="lg">
-              Explore Services
+              Explore RCM Services
             </Button>
           </motion.div>
 
@@ -268,10 +174,10 @@ export default function Hero() {
             className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3"
           >
             {[
-              "HIPAA-Compliant Framework",
-              "AI-Powered Workflows",
-              "24/7 Operations",
-              "99.5% Uptime SLA",
+              "HIPAA-Conscious Workflows",
+              "Full-Cycle RCM Coverage",
+              "Dedicated Support Teams",
+              "Transparent Reporting",
             ].map((item) => (
               <motion.div
                 key={item}
@@ -291,7 +197,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mt-16 w-full max-w-xl flex-1 lg:mt-0"
         >
-          <DashboardMockup />
+          <RCMOverview />
         </motion.div>
       </Container>
     </section>

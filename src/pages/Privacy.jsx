@@ -9,25 +9,25 @@ const sections = [
     icon: Shield,
     title: "Introduction",
     content:
-      'Marth Systems ("Marth Systems," "we," "us") is committed to protecting the privacy and security of the individuals and organizations we serve. This Privacy Policy explains how we collect, use, store, and safeguard your information when you visit marth.systems or engage with our services. We treat data protection as a core operational principle \u2014 not a compliance checkbox.',
+      'Marth Systems ("Marth Systems," "we," "us") is committed to protecting the privacy and security of the individuals and organizations we serve. This Privacy Policy explains how we collect, use, store, and safeguard your information when you visit www.marth.systems or engage with our services. We treat data protection as a core operational principle — not a compliance checkbox.',
   },
   {
     icon: Eye,
     title: "Information We Collect",
     content:
-      "We collect information you provide directly — such as your name, email address, phone number, company name, and details about your operational needs when you fill out a contact form, book a consultation, or communicate with us. We may also collect information automatically, including your IP address, browser type, device information, and how you interact with our website through analytics tools.",
+      "We collect information you provide directly through our contact form — including your name, business email address, phone number, organization name, role, service interest, monthly claim volume, number of providers, and message. We also collect information automatically, including your IP address, browser type, device information, and how you interact with our website through analytics tools. We explicitly ask that you do not submit protected health information (PHI), patient records, claim files, login credentials, or other sensitive documents through our general contact form.",
   },
   {
     icon: FileText,
     title: "How We Use Information",
     content:
-      "We use the information we collect to respond to your inquiries, provide our services, improve our website and service delivery, send relevant communications about our offerings, and ensure the security of our platform. Where healthcare operational data is involved, we follow HIPAA-conscious practices to maintain confidentiality and security.",
+      "We use the information we collect to respond to your inquiries, provide our RCM and BPO support services, improve our website and service delivery, send relevant communications about our offerings, and ensure the security of our platform. Healthcare operational data is handled with HIPAA-conscious practices to maintain confidentiality and security.",
   },
   {
     icon: Cookie,
     title: "Cookies & Analytics",
     content:
-      "We use cookies and similar tracking technologies to understand how our website is used, improve user experience, and analyze traffic patterns. You can control cookie preferences through your browser settings. We may use third-party analytics services such as Google Analytics to collect standard internet log information and visitor behavior data in aggregate form.",
+      "We use cookies and similar tracking technologies to understand how our website is used, improve user experience, and analyze traffic patterns. You can control cookie preferences through your browser settings. We may use third-party analytics services to collect standard internet log information and visitor behavior data in aggregate form.",
   },
   {
     icon: Database,
@@ -39,13 +39,13 @@ const sections = [
     icon: Lock,
     title: "Data Protection & Compliance",
     content:
-      "We implement industry-standard administrative, technical, and physical safeguards to protect your information. Our security practices include encrypted data transmission, access controls, regular security assessments, and internal policies designed to protect against unauthorized access or disclosure. Where applicable, our processes are designed with HIPAA-conscious operational awareness for healthcare-related interactions.",
+      "We implement industry-standard administrative, technical, and physical safeguards to protect your information. Our security practices include encrypted data transmission, least-privilege access controls, regular security assessments, and internal policies designed to protect against unauthorized access or disclosure. Our processes are designed with HIPAA-conscious operational awareness for healthcare-related interactions.",
   },
   {
     icon: Bell,
     title: "Communication Preferences",
     content:
-      "If you provide your contact information, we may send you updates about our services, industry insights, or operational best practices. You may opt out of marketing communications at any time by clicking the unsubscribe link in our emails or contacting us directly. We respect your preferences and will not send unrelated communications.",
+      "If you provide your contact information, we may send you updates about our services, industry insights, or operational best practices. You may opt out of marketing communications at any time by clicking the unsubscribe link in our emails or contacting us directly.",
   },
   {
     icon: Trash2,
@@ -57,25 +57,24 @@ const sections = [
     icon: Eye,
     title: "Your Rights",
     content:
-      "Depending on your jurisdiction, you may have the right to access, correct, update, or request deletion of your personal information. You may also have the right to restrict processing, object to processing, or request data portability. To exercise any of these rights, please contact us at legal@marth.systems. We will respond to your request within the timeframe required by applicable law.",
+      "Depending on your jurisdiction, you may have the right to access, correct, update, or request deletion of your personal information. You may also have the right to restrict processing, object to processing, or request data portability. To exercise any of these rights, please contact us at legal@marth.systems.",
   },
   {
     icon: Shield,
     title: "Children's Privacy",
     content:
-      "Our website and services are not directed toward individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have inadvertently collected such information, we will take steps to delete it promptly.",
+      "Our website and services are not directed toward individuals under the age of 18. We do not knowingly collect personal information from children.",
   },
   {
     icon: FileText,
     title: "Changes to This Policy",
     content:
-      "We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or operational needs. Material changes will be posted on this page with an updated effective date. We encourage you to review this policy periodically.",
+      "We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or operational needs. Material changes will be posted on this page with an updated effective date.",
   },
   {
     icon: Mail,
     title: "Contact Us",
-    content:
-      "If you have questions about this Privacy Policy or how we handle your data, please reach out to us.",
+    content: "",
     contact: true,
   },
 ];
@@ -85,8 +84,8 @@ export default function Privacy() {
     <>
       <SEO
         title="Privacy Policy"
-        description="Marth Systems Privacy Policy — how we collect, use, and protect your information. We treat data protection as a core operational principle."
-        canonical="https://marth.systems/privacy"
+        description="Marth Systems Privacy Policy — how we collect, use, and protect your information through our contact form and website. HIPAA-conscious data handling practices."
+        canonical="https://www.marth.systems/privacy"
       />
 
       <section className="section-padding bg-gradient-to-br from-surface-blue-soft via-surface to-white">
@@ -132,9 +131,11 @@ export default function Privacy() {
                     <h2 className="text-lg font-semibold text-ink">
                       {section.title}
                     </h2>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-secondary">
-                      {section.content}
-                    </p>
+                    {section.content && (
+                      <p className="mt-2 text-sm leading-relaxed text-ink-secondary">
+                        {section.content}
+                      </p>
+                    )}
                     {section.contact && (
                       <div className="mt-4 space-y-1.5 text-sm text-ink-secondary">
                         <p>
@@ -149,10 +150,10 @@ export default function Privacy() {
                         <p>
                           <span className="font-medium text-ink">Website:</span>{" "}
                           <a
-                            href="https://marth.systems"
+                            href="https://www.marth.systems"
                             className="text-brand-blue transition-colors hover:text-brand-blue/80"
                           >
-                            marth.systems
+                            www.marth.systems
                           </a>
                         </p>
                       </div>
@@ -177,11 +178,11 @@ export default function Privacy() {
             Have questions about your data?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base text-ink-secondary sm:text-body">
-            We're transparent about how we operate — including how we handle
+            We are transparent about how we operate — including how we handle
             your information. Reach out anytime.
           </p>
           <div className="mt-8">
-            <Button to="/contact#consultation-form" size="lg">
+            <Button to="/contact" size="lg">
               Contact Us <ArrowRight size={18} />
             </Button>
           </div>

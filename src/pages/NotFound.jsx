@@ -97,7 +97,7 @@ export default function NotFound() {
         title="404"
         description="The page you requested could not be found."
         image="/og/home.png"
-        canonical="https://marth.systems/404"
+        canonical="https://www.marth.systems/404"
       />
 
       <section className="relative min-h-[85vh] flex items-center section-padding bg-gradient-to-br from-surface-blue-soft via-surface to-white overflow-hidden">
@@ -144,7 +144,7 @@ export default function NotFound() {
                 transition={{ duration: 0.5, delay: 0.25 }}
                 className="mt-3 max-w-md text-base leading-relaxed text-ink-secondary"
               >
-                The page you're looking for may have been moved, deleted, or
+                The page you are looking for may have been moved, deleted, or
                 never existed.
               </motion.p>
 

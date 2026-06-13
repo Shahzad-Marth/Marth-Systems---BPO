@@ -9,19 +9,19 @@ const sections = [
     icon: FileCheck,
     title: "Introduction",
     content:
-      'These Terms of Service ("Terms") govern your access to and use of the Marth Systems website and the BPO, healthcare operations, and business process outsourcing services we provide. By using our website or engaging our services, you agree to be bound by these Terms. If you are entering into these Terms on behalf of an organization, you represent that you have the authority to bind that organization.',
+      'These Terms of Service ("Terms") govern your access to and use of the Marth Systems website and the RCM, healthcare BPO, and business process outsourcing services we provide. By using our website or engaging our services, you agree to be bound by these Terms. If you are entering into these Terms on behalf of an organization, you represent that you have the authority to bind that organization.',
   },
   {
     icon: Scale,
     title: "Acceptance of Terms",
     content:
-      "By accessing marth.systems, submitting a contact form, booking a consultation, or entering into a service agreement with Marth Systems, you acknowledge that you have read, understood, and agree to these Terms. If you do not agree, please refrain from using our website or services.",
+      "By accessing www.marth.systems, submitting a contact form, booking a consultation, or entering into a service agreement with Marth Systems, you acknowledge that you have read, understood, and agree to these Terms. If you do not agree, please refrain from using our website or services.",
   },
   {
     icon: Briefcase,
     title: "Services Overview",
     content:
-      "Marth Systems provides business process outsourcing services including but not limited to healthcare revenue cycle management, medical billing support, customer support operations, back-office administration, virtual assistance, and AI-assisted workflow optimization. All services are delivered under the terms of a separate service agreement, statement of work, or master services agreement that will govern the specifics of each engagement.",
+      "Marth Systems provides revenue cycle management and healthcare BPO support services including but not limited to eligibility verification, prior authorization, charge entry, claim scrubbing, claims submission, payment posting, denial management, A/R follow-up, provider credentialing, payer enrollment, and healthcare back-office administration. All services are delivered under the terms of a separate service agreement or statement of work.",
   },
   {
     icon: UserCheck,
@@ -33,7 +33,7 @@ const sections = [
     icon: Copyright,
     title: "Intellectual Property",
     content:
-      "All content on marth.systems — including text, graphics, logos, design elements, and proprietary methodologies — is the property of Marth Systems unless otherwise noted. You may not reproduce, distribute, or create derivative works without our written consent. Any materials, reports, or deliverables created specifically for your engagement remain your property upon full payment, subject to the terms of your service agreement.",
+      "All content on www.marth.systems — including text, graphics, logos, design elements, and proprietary methodologies — is the property of Marth Systems unless otherwise noted. You may not reproduce, distribute, or create derivative works without our written consent. Any materials, reports, or deliverables created specifically for your engagement remain your property upon full payment, subject to the terms of your service agreement.",
   },
   {
     icon: AlertTriangle,
@@ -45,7 +45,7 @@ const sections = [
     icon: CreditCard,
     title: "Payment & Billing",
     content:
-      "Fees for services are outlined in your applicable service agreement or statement of work. Invoices are due within the payment terms specified in your agreement. Late payments may result in service suspension. All fees are exclusive of applicable taxes, which are your responsibility. We reserve the right to modify pricing with reasonable notice.",
+      "Fees for services are outlined in your applicable service agreement or statement of work. Invoices are due within the payment terms specified in your agreement. Late payments may result in service suspension. All fees are exclusive of applicable taxes, which are your responsibility.",
   },
   {
     icon: Activity,
@@ -57,13 +57,13 @@ const sections = [
     icon: Shield,
     title: "Limitation of Liability",
     content:
-      "To the maximum extent permitted by law, Marth Systems shall not be liable for indirect, incidental, consequential, or punitive damages arising from your use of our website or services. Our total liability for any claim arising under these Terms is limited to the amount paid by you for the specific service giving rise to the claim. This limitation does not apply where prohibited by law.",
+      "To the maximum extent permitted by law, Marth Systems shall not be liable for indirect, incidental, consequential, or punitive damages arising from your use of our website or services. Our total liability for any claim arising under these Terms is limited to the amount paid by you for the specific service giving rise to the claim.",
   },
   {
     icon: Users,
     title: "Confidentiality",
     content:
-      "Both parties agree to maintain the confidentiality of shared proprietary or sensitive information. Marth Systems implements administrative and technical safeguards to protect your data. Confidentiality obligations survive the termination of these Terms or any service agreement. Where healthcare information is involved, we follow HIPAA-conscious practices as outlined in our business associate agreement, when applicable.",
+      "Both parties agree to maintain the confidentiality of shared proprietary or sensitive information. Marth Systems implements administrative and technical safeguards to protect your data. Confidentiality obligations survive the termination of these Terms or any service agreement. Where healthcare information is involved, we follow HIPAA-conscious practices.",
   },
   {
     icon: Briefcase,
@@ -75,7 +75,7 @@ const sections = [
     icon: XCircle,
     title: "Termination",
     content:
-      "Either party may terminate a service engagement in accordance with the notice period and terms specified in your service agreement. We reserve the right to terminate or suspend access to our website immediately for violations of these Terms. Upon termination, you remain responsible for any outstanding fees accrued before the effective termination date.",
+      "Either party may terminate a service engagement in accordance with the notice period and terms specified in your service agreement. We reserve the right to terminate or suspend access to our website immediately for violations of these Terms.",
   },
   {
     icon: Gavel,
@@ -87,7 +87,7 @@ const sections = [
     icon: RefreshCw,
     title: "Updates to Terms",
     content:
-      "We may update these Terms from time to time to reflect changes in our services, operational practices, or legal requirements. Material changes will be posted on this page with an updated effective date. Continued use of our website or services after changes take effect constitutes acceptance of the updated Terms.",
+      "We may update these Terms from time to time to reflect changes in our services, operational practices, or legal requirements. Material changes will be posted on this page with an updated effective date.",
   },
   {
     icon: Mail,
@@ -102,8 +102,8 @@ export default function Terms() {
     <>
       <SEO
         title="Terms of Service"
-        description="Marth Systems Terms of Service — the terms governing use of our website and BPO, healthcare operations, and business process outsourcing services."
-        canonical="https://marth.systems/terms"
+        description="Marth Systems Terms of Service — the terms governing use of our website and RCM, healthcare BPO, and revenue cycle management services."
+        canonical="https://www.marth.systems/terms"
       />
 
       <section className="section-padding bg-gradient-to-br from-surface-blue-soft via-surface to-white">
@@ -114,9 +114,8 @@ export default function Terms() {
               Terms of <span className="text-brand-blue">Service</span>
             </h1>
             <p className="mt-4 max-w-xl text-base text-ink-secondary sm:text-body">
-              These terms govern the use of our website and the operational
-              services we deliver. They're designed to be clear, fair, and
-              reflective of how we actually work with our clients.
+              These terms govern the use of our website and the RCM and BPO
+              support services we deliver.
             </p>
             <p className="mt-3 text-sm text-ink-muted">
               Effective date: January 1, 2025
@@ -181,10 +180,10 @@ export default function Terms() {
                         <p>
                           <span className="font-medium text-ink">Website:</span>{" "}
                           <a
-                            href="https://marth.systems"
+                            href="https://www.marth.systems"
                             className="text-brand-blue transition-colors hover:text-brand-blue/80"
                           >
-                            marth.systems
+                            www.marth.systems
                           </a>
                         </p>
                       </div>
@@ -209,12 +208,12 @@ export default function Terms() {
             Ready to work together?
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-base text-ink-secondary sm:text-body">
-            Let's discuss how Marth Systems can support your operational goals
-            with a partnership built on transparency and trust.
+            Let us discuss how Marth Systems can support your revenue cycle
+            and back-office operations.
           </p>
           <div className="mt-8">
-            <Button to="/contact#consultation-form" size="lg">
-              Book a Consultation <ArrowRight size={18} />
+            <Button to="/contact" size="lg">
+              Request a Consultation <ArrowRight size={18} />
             </Button>
           </div>
         </motion.div>

@@ -3,10 +3,10 @@ import { useInView, motion } from "framer-motion";
 import { Section } from "../ui";
 
 const metrics = [
-  { value: "24/7", label: "Operational Support", decimal: false },
-  { value: 98, suffix: "%", label: "Workflow Accuracy", decimal: false },
-  { value: 5, suffix: "+", label: "Industries Served", decimal: false },
-  { value: 100, suffix: "%", label: "HIPAA-Conscious Processes", decimal: false },
+  { value: "24/7", label: "RCM and BPO Support Coverage", decimal: false },
+  { value: 99, suffix: "%", label: "Claim Accuracy Target", decimal: false },
+  { value: 6, suffix: "+", label: "Healthcare Practice Types Served", decimal: false },
+  { value: 100, suffix: "%", label: "HIPAA-Conscious Operations", decimal: false },
 ];
 
 function AnimatedMetric({ metric }) {

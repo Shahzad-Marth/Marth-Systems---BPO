@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { footerLinks, contactInfo, socialLinks } from "../../data/navigation";
 import { Container } from "../ui";
 
@@ -63,8 +63,8 @@ export default function Footer() {
               Marth<span className="text-brand-blue"> Systems</span>
             </Link>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/50">
-              Enterprise BPO solutions for healthcare and business operations —
-              combining deep domain expertise with modern operational rigor.
+              Full-cycle US Healthcare RCM and BPO support for practices, clinics, provider groups,
+              billing teams, and healthcare organizations.
             </p>
           </div>
           <FooterColumn heading="Company" links={footerLinks.company} />
@@ -84,6 +84,17 @@ export default function Footer() {
                   {contactInfo.phone}
                 </a>
               </li>
+              {contactInfo.email && (
+                <li>
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="inline-flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded"
+                  >
+                    <Mail size={14} className="text-white/30 shrink-0" aria-hidden="true" />
+                    {contactInfo.email}
+                  </a>
+                </li>
+              )}
               <li className="inline-flex items-center gap-2 text-sm text-white/60">
                 <MapPin size={14} className="text-white/30 shrink-0" aria-hidden="true" />
                 {contactInfo.address}
@@ -114,7 +125,7 @@ export default function Footer() {
             &copy; {year} Marth Systems. All rights reserved.
           </p>
           <p className="text-xs text-white/30">
-            Security-first infrastructure &mdash; HIPAA-conscious operational framework.
+            HIPAA-conscious operational framework &mdash; Secure intake after consultation.
           </p>
           <nav aria-label="Legal links" className="flex gap-5">
             {footerLinks.resources.map((link) => (
