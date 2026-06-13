@@ -106,7 +106,7 @@ export function generateOrganizationSchema() {
     "@type": "Organization",
     name: SITE_NAME,
     url: BASE_URL,
-    logo: `${BASE_URL}/favicon.svg`,
+    logo: `${BASE_URL}/assets/favicon/favicon.ico`,
     description: SITE_CONFIG.description,
     foundingDate: "2024",
     address: { "@type": "PostalAddress", streetAddress: "Boston, MA — Lahore, PK" },

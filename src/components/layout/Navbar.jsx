@@ -105,7 +105,7 @@ export default function Navbar() {
           aria-label="Marth Systems home"
         >
           <img
-            src="/favicon.ico"
+            src="/assets/favicon/favicon.ico"
             width={32} height={32} alt="Marth Systems logo"
             className="h-7 w-7"
           />
@@ -161,7 +161,7 @@ export default function Navbar() {
               <div className="flex items-center justify-between border-b border-border px-6 py-4">
                 <span className="flex items-center gap-2 text-lg font-bold tracking-tight text-ink">
                   <img
-                      src="/favicon.ico"
+                      src="/assets/favicon/favicon.ico"
                       width={32} height={32} alt="Marth Systems logo"
                       className="h-7 w-7"
                     />
