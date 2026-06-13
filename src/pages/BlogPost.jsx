@@ -114,7 +114,7 @@ export default function BlogPost() {
       <SEO
         title={post.title}
         description={post.excerpt}
-        image="/og/blog.png"
+        image="/og/marth_systems-og-universal-1200x630.png"
         canonical={`https://www.marth.systems/blog/${post.slug}`}
         article={{
           ...post,

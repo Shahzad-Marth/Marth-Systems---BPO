@@ -96,7 +96,7 @@ export default function NotFound() {
       <SEO
         title="404"
         description="The page you requested could not be found."
-        image="/og/home.png"
+        image="/og/marth_systems-og-universal-1200x630.png"
         canonical="https://www.marth.systems/404"
       />
 

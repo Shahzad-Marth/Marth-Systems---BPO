@@ -22,7 +22,7 @@ export default function Blog() {
       <SEO
         title="Blog"
         description="Insights on BPO, healthcare operations, revenue cycle management, customer support, workflow automation, and operational excellence from Marth Systems."
-        image="/og/blog.png"
+        image="/og/marth_systems-og-universal-1200x630.png"
         canonical="https://www.marth.systems/blog"
       />
 

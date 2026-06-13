@@ -144,7 +144,7 @@ export function generateArticleSchema(post) {
     headline: post.title,
     description: post.excerpt || post.description,
     author: { "@type": "Organization", name: post.author || SITE_NAME },
-    publisher: { "@type": "Organization", name: SITE_NAME, logo: `${BASE_URL}/favicon.svg` },
+    publisher: { "@type": "Organization", name: SITE_NAME, logo: `${BASE_URL}/assets/logo-mark.svg` },
     datePublished: post.date,
     dateModified: post.date,
     mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE_URL}/blog/${post.slug}` },

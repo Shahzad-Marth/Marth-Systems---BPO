@@ -17,8 +17,8 @@ export const SITE_CONFIG = {
     "healthcare operations",
     "Marth Systems",
   ],
-  ogImage: "/og/home.png",
-  ogImageAlt: "Marth Systems — Full-Cycle US Healthcare RCM & BPO Support",
+  ogImage: "/og/marth_systems-og-universal-1200x630.png",
+  ogImageAlt: "Marth Systems — Full-Cycle US Healthcare RCM & BPO. RCM, BPO, credentialing, enrollment and healthcare back-office support.",
   twitterHandle: "@Marthsystems",
   themeColor: "#0F172A",
 };
