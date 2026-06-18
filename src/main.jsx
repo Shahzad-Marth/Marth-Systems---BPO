@@ -4,6 +4,8 @@ import { RouterProvider } from "react-router-dom";
 import "./index.css";
 import router from "./routes";
 
+window.history.scrollRestoration = "manual";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <RouterProvider router={router} />
