@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useLocation, Outlet } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { Navbar, Footer } from "../components/layout";
+import { Navbar, Footer, ScrollToTop } from "../components/layout";
 import { SkipLink, StructuredData } from "../components/common";
 
 export default function MainLayout() {
@@ -21,6 +21,7 @@ export default function MainLayout() {
 
   return (
     <>
+      <ScrollToTop />
       <StructuredData />
       <SkipLink />
       <div className="flex min-h-screen flex-col">
