@@ -2,6 +2,48 @@
   command = "npm run build"
   publish = "dist"
 
+# previously existing pages
+[[redirects]]
+  from = "/why-us"
+  to = "/why-marth-systems"
+  status = 301
+
+[[redirects]]
+  from = "/case-studies"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/automation-modern-bpo"
+  to = "/blog/ai-workflows-healthcare-operations"
+  status = 301
+
+[[redirects]]
+  from = "/blog/ai-back-office-operations"
+  to = "/blog/ai-workflows-healthcare-operations"
+  status = 301
+
+[[redirects]]
+  from = "/blog/modern-bpo-operations"
+  to = "/blog/healthcare-bpo-small-growing-practices"
+  status = 301
+
+[[redirects]]
+  from = "/blog/customer-experience-outsourcing"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/scaling-customer-support-teams"
+  to = "/blog"
+  status = 301
+
+[[redirects]]
+  from = "/blog/operational-efficiency-strategies"
+  to = "/blog"
+  status = 301
+
+# SPA fallback — must come after all specific page redirects
 [[redirects]]
   from = "/*"
   to = "/index.html"
